@@ -10,7 +10,7 @@ open System.Collections.Generic
 // It generates the build.fsx and generate.fsx files
 // --------------------------------
 
-let dirsWithProjects = ["src";"tests";"docs/content"]
+let dirsWithProjects = ["src";"tests"]
                        |> List.map (fun d -> directoryInfo (__SOURCE_DIRECTORY__ @@ d))
 
 // special funtions
@@ -71,11 +71,7 @@ let print msg =
 print """
 # Project Scaffold Init Script
 # Please answer a few questions and we will generate
-# two files:
-#
-# build.fsx               This will be your build script
-# docs/tools/generate.fsx This script will generate your
-#                         documentation
+# your build script (build.fsx)
 #
 # NOTE: Aside from the Project Name, you may leave any
 # of these blank, but you will need to change the defaults
@@ -210,7 +206,6 @@ let generate templatePath generatedFilePath =
   print (sprintf "# Generated %s" generatedFilePath)
 
 generate (localFile "build.template") (localFile "build.fsx")
-generate (localFile "docs/tools/generate.template") (localFile "docs/tools/generate.fsx")
 
 //Handle source control
 let isGitRepo () =
