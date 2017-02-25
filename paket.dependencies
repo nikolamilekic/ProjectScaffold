@@ -15,3 +15,6 @@ group Test
     source https://nuget.org/api/v2
 
     nuget Expecto = 3.0.2
+    nuget Expecto.FsCheck = 3.0.2
+    nuget FsCheck
+    nuget Unquote
