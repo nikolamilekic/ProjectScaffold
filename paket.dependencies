@@ -1,6 +1,6 @@
 source https://nuget.org/api/v2
 
-nuget FSharp.Core >= 4.0.1.7-alpha redirects: force
+nuget FSharp.Core redirects: force
 
 group Build
     source https://nuget.org/api/v2
@@ -14,7 +14,7 @@ group Build
 group Test
     source https://nuget.org/api/v2
 
-    nuget Expecto = 3.0.2
-    nuget Expecto.FsCheck = 3.0.2
+    nuget Expecto
+    nuget Expecto.FsCheck
     nuget FsCheck
     nuget Unquote
