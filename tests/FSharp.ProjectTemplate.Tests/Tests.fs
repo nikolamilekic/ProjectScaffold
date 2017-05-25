@@ -12,4 +12,7 @@ let tests =
         testCase "should fail" <| fun _ ->
             let subject = false
             Expect.isTrue subject "I should fail because the subject is false."
+
+        testProperty "Addition is commutative" <| fun a b ->
+            a + b = b + a
     ]

@@ -18,3 +18,4 @@ group Test
     nuget Expecto.FsCheck
     nuget FsCheck
     nuget Unquote
+    nuget Expecto.VisualStudio.TestAdapter version_in_path: true
