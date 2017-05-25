@@ -4,3 +4,4 @@ Expecto
 Expecto.FsCheck
 FsCheck
 Unquote
+Expecto.VisualStudio.TestAdapter
