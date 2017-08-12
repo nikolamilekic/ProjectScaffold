@@ -10,31 +10,6 @@ open System.Collections.Generic
 // It generates the build.fsx and generate.fsx files
 // --------------------------------
 
-let checkFSharpInstallation () =
-  try
-    MSBuildRelease "." "CheckFSharpInstallation" ["CheckFSharpInstallation.fsproj"] |> ignore
-    true
-  with e ->
-    false
-
-if File.Exists("CheckFSharpInstallation.fsproj") then
-  if checkFSharpInstallation() then
-    File.Delete "CheckFSharpInstallation.fsproj" // F# is installed, no need to check again if init.fsx gets run a second time somehow
-  else
-    traceError "F# does not seem to be installed."
-    if isMacOS then
-      traceError "Please install F# (see http://fsharp.org/use/mac/ for instructions),"
-    elif isWindows then
-      traceError "Please install F# (see http://fsharp.org/use/windows/ for instructions),"
-    elif isUnix then
-      traceError "Please install the \"fsharp\" package with your system's standard package manager,"
-      if isLinux then
-        traceError "(e.g., \"sudo apt-get install fsharp\" or \"sudo yum install fsharp\"),"
-    else
-      traceError "Please install F# (see http://fsharp.org/ for instructions),"
-    traceError "then run the build script again."
-    failwith "Build script aborted: please install F# and try again."
-
 let dirsWithProjects = ["src";"tests";"docsrc/content"]
                        |> List.map (fun d -> directoryInfo (__SOURCE_DIRECTORY__ @@ d))
 
@@ -126,7 +101,7 @@ vars.["##GitRawUrl##"]   <- promptAndNormalizeUrlFor (sprintf "Github raw url (l
 vars.["##GitHome##"]     <- promptFor "Github User or Organization"
 vars.["##GitName##"]     <- promptFor "Github Project Name (leave blank to use Project Name)"
 
-let wantGit     = if inCI 
+let wantGit     = if inCI
                     then false
                     else promptYesNo "Initialize git repo"
 let givenOrigin = if wantGit
