@@ -7,7 +7,6 @@ This project can be used to scaffold a prototypical .NET solution including file
 
 * updates all AssemblyInfo files
 * compiles the application and runs all test projects
-* generates [SourceLinks](https://github.com/ctaggart/SourceLink)
 * generates API docs based on XML document tags
 * generates [documentation based on Markdown files](http://fsprojects.github.io/ProjectScaffold/writing-docs.html)
 * generates [NuGet](http://www.nuget.org) packages
@@ -21,6 +20,19 @@ In order to start the scaffolding process run
 Read the [Getting started tutorial](http://fsprojects.github.io/ProjectScaffold/index.html#Getting-started) to learn more.
 
 Documentation: http://fsprojects.github.io/ProjectScaffold
+
+
+## Tips for migrating existing project to Scaffold format
+
+    * clone ProjectScaffold to new folder
+    * run the initializing build
+    * delete .git folder
+    * copy intitialized scaffold files and folders to original project folder
+    * git add / commit project -m"first pass migrating to scaffold format" (otherwise git may be confused by next mv)
+    * git mv necessary project file folders into src folder
+    * git commit, and any following cleanup
+
+Be sure to do only ````git mv```` file renames in a single commit. If you try to commit anything else git will treat the renames as file delete / file add and you will loose history on those files.
 
 ## Requirements
 

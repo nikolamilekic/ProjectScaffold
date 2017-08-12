@@ -94,7 +94,7 @@ vars.["##GitRawUrl##"]   <- promptAndNormalizeUrlFor (sprintf "Github raw url (l
 vars.["##GitHome##"]     <- promptFor "Github User or Organization"
 vars.["##GitName##"]     <- promptFor "Github Project Name (leave blank to use Project Name)"
 
-let wantGit     = if inCI 
+let wantGit     = if inCI
                     then false
                     else promptYesNo "Initialize git repo"
 let givenOrigin = if wantGit
