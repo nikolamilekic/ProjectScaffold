@@ -13,8 +13,8 @@ group Build
 group Test
     source https://nuget.org/api/v2
 
-    nuget Expecto < 5.0
+    nuget Expecto < 6.0
     nuget Expecto.FsCheck
     nuget FsCheck
     nuget Unquote
-    nuget Expecto.VisualStudio.TestAdapter = 4.0.0-alpha007 version_in_path: true
+    nuget Expecto.VisualStudio.TestAdapter version_in_path: true
